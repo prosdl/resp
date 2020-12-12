@@ -1,0 +1,39 @@
+basic_stuff.o: basic_stuff.cpp basic_stuff.h
+bitboard.o: bitboard.cpp bitboard.h basic_stuff.h
+board.o: board.cpp basic_stuff.h bitboard.h board.h move.h hash.h \
+  respoptions.h phash.h notation.h StringTools.h
+board_mmx.o: board_mmx.cpp
+book.o: book.cpp book.h hash.h basic_stuff.h respoptions.h move.h
+console.o: console.cpp basic_stuff.h controller.h board.h move.h hash.h \
+  respoptions.h phash.h bitboard.h pgnparse.h search.h book.h gameinfo.h \
+  xboard.h version.h eval.h
+controller.o: controller.cpp basic_stuff.h controller.h board.h move.h \
+  hash.h respoptions.h phash.h bitboard.h pgnparse.h search.h book.h \
+  gameinfo.h StringTools.h eval.h version.h respmath.h notation.h kedb.h
+eval.o: eval.cpp eval.h board.h basic_stuff.h move.h hash.h respoptions.h \
+  phash.h bitboard.h recognizer.h
+gameinfo.o: gameinfo.cpp gameinfo.h version.h basic_stuff.h respoptions.h
+hash.o: hash.cpp hash.h basic_stuff.h respoptions.h move.h respmath.h
+incmovgen.o: incmovgen.cpp incmovgen.h move.h basic_stuff.h board.h \
+  hash.h respoptions.h phash.h bitboard.h
+kedb.o: kedb.cpp kedb.h board.h basic_stuff.h move.h hash.h respoptions.h \
+  phash.h bitboard.h
+move.o: move.cpp move.h basic_stuff.h board.h hash.h respoptions.h \
+  phash.h bitboard.h
+notation.o: notation.cpp notation.h basic_stuff.h board.h move.h hash.h \
+  respoptions.h phash.h bitboard.h StringTools.h
+pgnparse.o: pgnparse.cpp pgnparse.h board.h basic_stuff.h move.h hash.h \
+  respoptions.h phash.h bitboard.h notation.h
+phash.o: phash.cpp phash.h basic_stuff.h respoptions.h respmath.h
+recognizer.o: recognizer.cpp recognizer.h board.h basic_stuff.h move.h \
+  hash.h respoptions.h phash.h bitboard.h kedb.h
+respmath.o: respmath.cpp respmath.h basic_stuff.h
+respoptions.o: respoptions.cpp respoptions.h
+search.o: search.cpp search.h board.h basic_stuff.h move.h hash.h \
+  respoptions.h phash.h bitboard.h eval.h notation.h recognizer.h \
+  incmovgen.h
+StringTools.o: StringTools.cpp StringTools.h
+version.o: version.cpp version.h
+xboard.o: xboard.cpp xboard.h controller.h board.h basic_stuff.h move.h \
+  hash.h respoptions.h phash.h bitboard.h pgnparse.h search.h book.h \
+  gameinfo.h StringTools.h version.h

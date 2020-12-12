@@ -1,0 +1,86 @@
+??-??.2002: ** Version 0.21 **  
+          -GNU Readline support; Note: there is a problem using the
+           Readliner header under C++ and the quick fix was to
+           replace the macro __P(x) with x in my /usr/include/readline
+           directory
+23.05.2003: ** Version 0.20 **  
+          -development of Resp is from now on solely under Linux
+          -changed some Details in class Bitboard, which leads to 
+           a better Performance under gcc3.0; thanks for a hint
+           from Russel Reagan in CCC
+          -the incremental move generator is now implemented via
+           a state machine 
+          -Resp now writes its games to "resp.pgn"
+          -resp.ini format changed; setting and getting options via
+           commandline possible
+          -some smaller changes in the movegeneration: a simpler detection
+           for legality, if the move wasn't a checking move
+          -serveral changes in the makefile; gcc 3.2 optimizations, 
+           automatic build number, doxygen, ...
+12.06.2002: ** Version 0.19 **  
+          -added MSB/LSB (extended) assembler code for Linux version 
+           (more to follow :) 
+          -reduced the number of statistics, which Resp dumps 
+           in console mode
+          -a few optimizations
+07.06.2002: ** Version 0.18 **  (no release version)
+          -changed move generation in 'negascout': Resp uses now an
+           incremental move generator
+          -minor changes in moveordering
+          -a few optimizations
+26.05.2002: ** Version 0.17 **  (no release version)
+          -continued rewriting pawn evaluation 
+          -added passed pawn extension
+          -Resp now supports time controls with increments properly; a match
+           at level 0 2 5 between 0.17d and 0.14 ended +9, =0, -1
+          -reduced probability for losing games on time; thx to Leo Dijksman
+           for reporting
+          -method drawish can now detect most drawn endgames without pawns
+18.05.2002: ** Version 0.16 **  (no release version)
+          -removed learning code (class Learn)
+          -many changes in the evaluation code: bonus for two rooks on
+           seventh rank; bonus for B,N,R,Q proximity to opposite king;
+           penalty for bad trades
+          -started rewriting pawn evaluation: passed pawns, outside passed
+           pawns, connected passed pawns; PST completely new (smaller
+           values for advanced pawns)
+          -a small change in my rehash schema
+01.04.2002: ** Version 0.15 **  (no release version)
+          -Starting with Knowledgeable Endgame Databases (from Ernst A.Heinz Book
+           "Scalable Search in Computer Chess")
+          -KPK implemented; the table is stored in the binary file "kedb.kpk"
+          -implemented a few recognizers for endgames with known game value
+          -added code for pawn races
+          -added code for detection of "drawish" endgames like KQBKQ
+          -changed Pawn Push Extension
+          -Resp is much more careful with null move pruning in endgames
+          -Found bug: SAN for capturing promotions (exd8=Q+) was wrong
+          -changed SEE code to support promotions
+          -in quiescence: avoiding some calls to SEE by using MVV-LVA for sorting moves
+17.02.2002: ** Version 0.14 ** 
+          -Adding: Fractional extensions.
+          -Fixed bug, that made Resp play under CM8000 impossible; thanks to Carlos 
+           Pesce for reporting
+          -Replaced "Peter Rosendahls bogus razoring" with Ernst A.Heinz
+           "Extended Futility Pruning And Limited Razoring" :)
+          -Fixed bug in move ordering; after serveral million nodes the moves were 
+           only sorted with history heuristics, which affected Resp's play at longer 
+           time controls ...
+          -A lot of tuning with wac and ecm-gcp
+          -Changed opening and early midgame positional tables for pawns; 
+           this should prevent lines like a4-a5-a6, which 0.13 often played
+          -Added code that changes the number of calls to a time control function
+           during search, depending on the cpu speed. This should avoid time control
+           problems on slower machines like Pentium ~100MHz
+          -Mate value is now 100 000 instead of 10 000, after Resp couldn't  handle 
+           a few test positions, which were posted at the WinBoard forum by Dann Corbit
+          -In "resp.ini" the Hash size can now be specified with something like 3.5M for
+           3.5 Mega Bytes
+          -In "resp.ini" two new tags: Logging to switch on/off writing to resp.log; 
+           Resign to switch on/off resigning
+          -Added makefile for Intel compiler; Resp should now compile 
+           with MSVC 6.0 (only project file), Intel compiler (Version 5.01, 
+           use "makefile.intel") and with Linux GNU g++ (Version 3.01, use "makefile")
+
+21.01.2002: ** Version 0.13 ** 
+          -First Release of Resp.

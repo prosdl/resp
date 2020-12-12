@@ -1,0 +1,88 @@
+#
+#    makefile für resp
+#    -----------------
+#
+#    ********** VERSION FUER INTEL COMPILER (getestet mit 5.01)  **********
+#		
+#    AUFRUF: make -f makefile.intel
+#    
+#    $Id: makefile.intel,v 1.3 2002/04/02 18:59:18 rosendahl Exp $
+#
+
+
+CC	= icl
+LD	= icl
+CFLAGS	= -O2
+DEFS = -DUSE_MMXASM -DUSE_ASM_MSBLSB -DUSE_TRANSPOSITION_TABLE -DUSE_PAWNHASH
+
+
+SRCS  =	console.cpp StringTools.cpp basic_stuff.cpp bitboard.cpp board.cpp\
+	book.cpp controller.cpp eval.cpp hash.cpp inifiles.cpp\
+	move.cpp pgnparse.cpp phash.cpp respmath.cpp search.cpp\
+	xboard.cpp notation.cpp
+OBJS  =	console.obj StringTools.obj basic_stuff.obj bitboard.obj board.obj\
+	book.obj controller.obj eval.obj hash.obj inifiles.obj\
+	move.obj pgnparse.obj phash.obj respmath.obj search.obj\
+	xboard.obj notation.obj
+
+
+all: resp
+
+resp: $(OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) -o resp
+
+# -----------------------------------------------------------------
+
+console.obj: console.cpp basic_stuff.h xboard.h controller.h
+	$(CC) $(CFLAGS) $(DEFS) -c console.cpp
+
+StringTools.obj: StringTools.cpp StringTools.h
+	$(CC) $(CFLAGS) $(DEFS) -c StringTools.cpp
+
+basic_stuff.obj: basic_stuff.cpp basic_stuff.h
+	$(CC) $(CFLAGS) $(DEFS) -c basic_stuff.cpp
+
+bitboard.obj: bitboard.cpp bitboard.h
+	$(CC) $(CFLAGS) $(DEFS) -c bitboard.cpp
+
+board.obj: board.cpp board.h basic_stuff.h bitboard.h move.h
+	$(CC) $(CFLAGS) $(DEFS) -c board.cpp
+
+book.obj: book.cpp book.h
+	$(CC) $(CFLAGS) $(DEFS) -c book.cpp
+
+controller.obj: controller.cpp controller.h basic_stuff.h StringTools.h\
+              eval.h book.h
+	$(CC) $(CFLAGS) $(DEFS) -c controller.cpp
+
+eval.obj: eval.cpp eval.h phash.h bitboard.h basic_stuff.h
+	$(CC) $(CFLAGS) $(DEFS) -c eval.cpp
+
+hash.obj: hash.cpp hash.h respmath.h
+	$(CC) $(CFLAGS) $(DEFS) -c hash.cpp
+
+inifiles.obj: inifiles.cpp inifiles.h
+	$(CC) $(CFLAGS) $(DEFS) -c inifiles.cpp
+
+move.obj: move.cpp move.h board.h
+	$(CC) $(CFLAGS) $(DEFS) -c move.cpp
+
+pgnparse.obj: pgnparse.cpp pgnparse.h board.h
+	$(CC) $(CFLAGS) $(DEFS) -c pgnparse.cpp
+
+phash.obj: phash.cpp phash.h respmath.h
+	$(CC) $(CFLAGS) $(DEFS) -c phash.cpp
+
+respmath.obj: respmath.cpp respmath.h
+	$(CC) $(CFLAGS) $(DEFS) -c respmath.cpp
+
+search.obj: search.cpp search.h eval.h basic_stuff.h
+	$(CC) $(CFLAGS) $(DEFS) -c search.cpp
+
+xboard.obj: xboard.cpp xboard.h controller.h StringTools.h
+	$(CC) $(CFLAGS) $(DEFS) -c xboard.cpp
+
+notation.obj: notation.cpp notation.h basic_stuff.h board.h
+	$(CC) $(CFLAGS) $(DEFS) -c notation.cpp
+
+

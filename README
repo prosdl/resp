@@ -1,0 +1,108 @@
+-------------------------------------------------------------------------------
+resp Version 0.19
+-------------------------------------------------------------------------------
+readme file; $Id: README,v 1.9 2002/06/10 22:11:40 peter Exp $
+
+1) Description
+---------------
+resp is  a chess program, which can be used with Tim Mann's excellent graphical
+user interface WinBoard Ver.4.2.5 or higher (http://www.tim-mann.org/). 
+
+
+2) Installation
+----------------
+Unzip the binaries to a directory, let's say c:\resp_directory and add the
+following entry to the winboard.ini file:
+
+      /fcp resp /fd "c:\resp_directory"
+      /scp resp /sd "c:\resp_directory"
+
+3) Usage
+----------
+You can set all necessary options in the 'resp.ini' file. Please look at the
+comments in this file, to see how this can be done.
+
+When you use resp in console mode, there are some commands, which you 
+may find useful:
+
+-createbook <pgnfile> <bookfile> <depth>
+
+   Used to create opening books. An example:
+
+   createbook games.pgn book.bin 20
+
+   ... will use the PGN file "games.pgn" to create a resp opening book called
+   book.bin. To use it there has to be the line Standard_Book_name=book.bin in
+   your "resp.ini"! The 20 means: use the first 20 moves (halfply) from
+   games.pgn.
+
+-runepd [+] <filename> <time_in_secs> [ <position> ]
+
+   Used to run EPD-test suites. <filename> is the name of the EPD-file,
+   <time_in_secs> is the time per seconds resp will search a position.  You can
+   use <position> to run the test only on a specific position in the EPD-file.
+   If you use the "+" the results of the test will be added to a file called
+   "results.unl". If you want to generate HTML tables with the test results you
+   can use the simple perl-script res2html.pl by typing "res2html.pl
+   results.unl" at the command line [1] (this makes sense if you run many tests
+   with different configurations or different versions of resp on the same test
+   suite, because the perl script will produce one table for each test;
+   actually this option is very useful for the author, but probably not that
+   useful for most others :-).
+
+   [1] Of course you need a version of Perl installed on your system ;)
+
+- sb "<file_name>"|<FEN_string>
+
+  Use this command to set up a FEN position. If you want to load a position
+  from a file use the quotes, like sb "test.fen".
+
+4) Bugs
+--------
+If you find a bug you can send a report to p_rosendahl@t-online.de.  If
+possible, please include the winboard.debug file in your email.
+
+4) Copyrights
+--------------
+Copyright (C) 2001-2002 Peter Rosendahl
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+5) Thanks
+----------
+To everyone contributing to free chess software!
+
+Many thanks to Robert Hyatt for allowing me to use an adaption of CheckInput()
+for Windows from Crafty's utility.c.
+
+Special thanks to Tim Mann for XBoard/WinBoard and Tom Kerrigan for TSCP (a
+small chess engine written in C that is a great starting point, when you want
+to develop your own chess engine). I learned a lot about chess programming by
+looking into the sources of other authors; so thanks a lot to those programmers
+who opened up their source code: Robert Hyatt (Crafty), Jon Dart (Arasan), Dan
+Homan (EXchess), Gian-Carlo Pascutto (Sjeng), Adrien Regimbald (Faile), Colin
+Frayn and Dann Corbit (Beowulf),  Colin Frayn (ColChess), Carlos del Cacho
+(Pepito), Bruce Moreland (Gerbil) and many others ...  Also thanks to everyone
+asking or answering questions at CCC (www.icdchess.com) or the WinBoard Forum
+(http://f11.parsimony.net/forum16635/) and for those, who are running my engine
+in tournaments, especially Leo Dijksman, Andreas Herrmann, George Lyapko and
+Lars Hallerström.
+
+
+
+Email: p_rosendahl@t-online.de
+http://p_rosendahl.bei.t-online.de/
+
+

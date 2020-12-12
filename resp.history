@@ -1,0 +1,113 @@
+perft 4
+perft 5
+perft 6
+runepd wac.epd 10
+runepd ./wac.epd 10
+new
+a
+bye
+quit
+perft 4
+perft 5
+a
+help
+fen
+ls
+help
+info
+help
+set
+sset
+get
+quit
+runepd wac.epd 20 002
+runepd wac.epd 20 150
+quit
+perft 5
+perft 5
+perft 5
+perft 6
+quit
+perft 4
+perft 5
+perft 5
+perft 5
+quit
+perft 1
+perft 2
+perft 3
+perft 4
+perft 5
+quit
+perft 1
+perft 2
+perft 3
+perft 4
+perft 5
+perft 5
+perft 5
+perft 5
+perft 5
+perft 5
+perft 6
+quit
+perft 4
+perft 5
+perft 5
+perft 5
+quit
+perft 2
+perft 3
+perft 4
+perft 5
+perft 5
+perft 5
+perft 6
+runepd wac.epd 10 002
+quit
+perft 4
+perft 5
+perft 5
+perft 6
+quit
+perft 5
+perft 5
+perft 6
+quit
+perft 4
+runepd wac.epd 5 002
+runepd wac.epd 5 002
+runepd wac.epd 10 100
+runepd wac.epd 10 100
+quit
+perft 2
+perft 3
+quit
+pergt 2
+perft 2
+d
+bye
+quit
+makemove
+go
+quit
+info
+quit
+info
+a
+ 
+ls
+dir
+exit
+quit
+help
+perft 4
+perft 
+perft 5
+perft 6
+quit
+info
+quit
+perft 5
+perft 6
+quit
